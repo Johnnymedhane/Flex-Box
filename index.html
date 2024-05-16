@@ -59,12 +59,13 @@
                 <div class="row">
                     <div class="inner">
                      <label for="pass"> password</label>
-                     <input type="password" id="pass" name="pass" pattern=".{6}" required>
-                     <span class="spn" id="spn">* password do not match</span>
+                     <input type="password" id="pass" name="pass" pattern=".{8,}" required>
+                     <span class="spn" id="spn">* must at list 8 characters!</span>
                     </div>
                     <div class="inner">
                      <label for="cpass">confirm password</label>
-                     <input type="password" id="cpass" name="cpass" pattern=".{6}"required>
+                     <input type="password" id="cpass" name="cpass" pattern=".{8,}"required>
+                     <span class="spn" id="cspn">* password do not match</span>
                     </div>
         </div>
     </div>
@@ -81,7 +82,53 @@
 
     </div>
 
-     
+       
+
+    <script>
+        var input = document.getElementById("pass");
+        var confirm = document.getElementById("cpass");
+        var fpass = document.getElementById("spn");
+        var cpss = document.getElementById("cspn");
+
+        input.onfocus = function() {
+            document.getElementById("spn").style.display = "block";
+          }
+          input.onblur = function() {
+            document.getElementById("spn").style.display = "none";
+          }
+          confirm.onblur = function() {
+            document.getElementById("cspn").style.display = "none";
+          
+          }
+          confirm.onfocus = function() {
+            document.getElementById("cspn").style.display = "block";
+          
+          }
+
+          input.onkeyup = function(){
+          
+          if (input.value.length >= 8){
+            fpass.style.display = "none";
+
+          }
+        
+        }
+        
+
+        
+        
+
+        confirm.onkeyup = function(){
+            if (confirm.value==(input.value)){
+                cpss.style.display = "none";
+                confirm.style.border ="1px solid  var(--input)";
+            }
+            else {
+                cpss.style.display = "block";
+                confirm.style.border ="1px solid red";
+            }
+        }
+    </script>
 
 </body>
 </html>
