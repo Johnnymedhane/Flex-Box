@@ -59,12 +59,12 @@
                 <div class="row">
                     <div class="inner">
                      <label for="pass"> password</label>
-                     <input type="password" id="pass" name="pass" pattern=".{8,}" required>
-                     <span class="spn" id="spn">* must at list 8 characters!</span>
+                     <input type="password" id="pass" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]) .{8,}" required>
+                     <p class="spn" id="spn">* must!  <span id="firsts">number, </span><span id="seconds">lowercase,</span><span id="thirds">1 uppercase</span> </p>
                     </div>
                     <div class="inner">
                      <label for="cpass">confirm password</label>
-                     <input type="password" id="cpass" name="cpass" pattern=".{8,}"required>
+                     <input type="password" id="cpass" name="cpass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"required>
                      <span class="spn" id="cspn">* password do not match</span>
                     </div>
         </div>
@@ -76,7 +76,8 @@
        <div class="div3">
         <div class="submit">
             <button>Creat Account</button>
-            <p>Already have an account? log in</p>
+            <p>Already have an account? </p>  <a href="#">log in</a>
+            
         </div>
        </div>
 
@@ -109,8 +110,62 @@
           
           if (input.value.length >= 8){
             fpass.style.display = "none";
+            
 
           }
+          else {
+            fpass.style.display = "block";
+          }
+            //lowercase
+          let lowercase;
+          lowercase = /[a-z]/g;
+          if (input.value.match(lowercase)) {
+
+            document.getElementById("seconds").style.color = "green";
+           
+
+            }
+            else {
+                document.getElementById("seconds"). style.color =
+                "red";
+
+          }
+            //upercase
+          let uppercase;
+          uppercase = /[A-Z]/g;
+          if (input.value.match(uppercase)) {
+
+            document.getElementById("thirds").style.color = "green";
+           
+
+            }
+            else {
+                document.getElementById("thirds"). style.color =
+                "red";
+
+          }
+      // NUMBERS
+
+      let number;
+      number = /[0-9]/g;
+      if (input.value.match(number)) {
+
+        document.getElementById("firsts").style.color = "green";
+       
+
+        }
+        else {
+            document.getElementById("firsts"). style.color =
+            "red";
+
+      }
+
+
+      const bordercolor= [number, lowercase, uppercase];
+       
+      if (input.value.match(bordercolor)){
+        document.getElementById("pass");.style.border= "1px solid green ";
+      }
         
         }
         

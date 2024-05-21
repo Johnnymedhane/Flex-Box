@@ -122,8 +122,10 @@ input{
 }
 input[type=text]:focus, input[type=email]:focus, input[type=number]:focus {
     border: 1px solid rgb(77, 77, 201);
-    box-shadow: 0 2px 4px 0.5px ;
+    box-shadow: 0 1px 2px 0.1px ;
 }
+
+
 
 
 .spn{
@@ -134,10 +136,14 @@ input[type=text]:focus, input[type=email]:focus, input[type=number]:focus {
 #cspn{
     display: none;
 }
+
 input[type=password]:invalid{
     border: 1px solid red;
-
 }
+
+
+
+
 
   .div3{
    
@@ -158,6 +164,17 @@ input[type=password]:invalid{
     border: none;
     font-size: 1.2rem;
     
+  }
+  .submit p{
+   display: inline-block;
+  }
+  .submit a{
+    text-decoration: none;
+   padding: 5px 15px;
+   background: #3346cc;
+   text-transform: lowercase;
+   color: #fdfdfd;
+   border-radius: 20px;
   }
   @media  only screen and (max-width:600px) {
     .content{
