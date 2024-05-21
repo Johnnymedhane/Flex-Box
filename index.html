@@ -128,8 +128,10 @@
             else {
                 document.getElementById("seconds"). style.color =
                 "red";
-
+                fpass.style.display = "block";
           }
+
+
             //upercase
           let uppercase;
           uppercase = /[A-Z]/g;
@@ -142,7 +144,7 @@
             else {
                 document.getElementById("thirds"). style.color =
                 "red";
-
+                fpass.style.display = "block";
           }
       // NUMBERS
 
@@ -152,19 +154,24 @@
 
         document.getElementById("firsts").style.color = "green";
        
-
+       
         }
         else {
             document.getElementById("firsts"). style.color =
             "red";
-
+           
       }
 
 
-      const bordercolor= [number, lowercase, uppercase];
-       
-      if (input.value.match(bordercolor)){
-        document.getElementById("pass");.style.border= "1px solid green ";
+     function myFunctin(p1,p2,p3){
+      return p1 + p2 + p3
+     }
+       let results = myFunctin(/[0-9]/g, /[A-Z]/g,  /[a-z]/g);
+
+
+
+      if (input.value.match(results)){
+        input.style.border= "1px solid green ";
       }
         
         }
